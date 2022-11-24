@@ -9,7 +9,7 @@ export const RestaurantCardCover = styled(Card.Cover)`
   background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 export const Info = styled.View`
-  padding: ${(props) => props.theme.space[1]};
+  padding: ${(props) => props.theme.space[2]};
 `;
 export const Address = styled.Text`
   font-family: ${(props) => props.theme.fonts.heading};

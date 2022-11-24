@@ -18,6 +18,7 @@ export const restaurantTransform = ({ results = [] }) => {
       ...res,
       isOpenNow: res.opening_hours && res.opening_hours.open_now,
       isClosedTemporarily: res.business_status === "CLOSED_TEMPORARILY",
+      address: res.vicinity,
     };
   });
   return camelize(mappedResult);
