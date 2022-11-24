@@ -1,46 +1,19 @@
 import React from "react";
-import { Text, View, Image } from "react-native";
-import { Card } from "react-native-paper";
-import styled from "styled-components/native";
+import { Text } from "../../../components/typography/text.component";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
-const RestaurantCard = styled(Card)`
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-const RestaurantCardCover = styled(Card.Cover)`
-  padding: ${(props) => props.theme.space[1]};
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-const Info = styled.View`
-  padding: ${(props) => props.theme.space[2]};
-`;
-const Title = styled.Text`
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.title};
-`;
-const Address = styled.Text`
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.caption};
-`;
-const Rating = styled.View`
-  flex: 5;
-  flex-direction: row;
-  padding-top: ${(props) => props.theme.space[1]};
-  padding-bottom: ${(props) => props.theme.space[1]};
-`;
-const Opening = styled.View`
-  flex: 5;
-  flex-direction: row-reverse;
-  padding-top: ${(props) => props.theme.space[1]};
-  padding-bottom: ${(props) => props.theme.space[1]};
-`;
-const SvgRow = styled.View`
-  flex-direction: row;
-  align-content: space-between;
-  padding-top: ${(props) => props.theme.space[2]};
-  padding-bottom: ${(props) => props.theme.space[2]};
-`;
+import { Spacer } from "../../../components/spacer/spacer.component";
+import {
+  Address,
+  Icon,
+  Info,
+  Opening,
+  Rating,
+  RestaurantCard,
+  RestaurantCardCover,
+  SvgRow,
+} from "./restaurant-info-card.styles";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -59,26 +32,21 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     <RestaurantCard elevation={2}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
-        <Title>{name}</Title>
+        <Text variant="label">{name}</Text>
         <SvgRow>
           <Rating>
             {ratingArray.map(() => (
-              <SvgXml xml={star} width={20} height={20} />
+              <SvgXml key={Math.random()} xml={star} width={20} height={20} />
             ))}
           </Rating>
           <Opening>
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            <View style={{ paddingLeft: 10 }} />
+            <Spacer position="left" size="large" />
             {isClosedTemporarily && (
               <>
-                <Image
-                  style={{ width: 15, height: 15 }}
-                  source={{ uri: icon }}
-                />
-                <View style={{ paddingLeft: 10 }} />
-                <Text variant="label" style={{ color: "red", fontSize: 10 }}>
-                  CLOSED TEMPORARILY
-                </Text>
+                <Icon source={{ uri: icon }} />
+                <Spacer position="left" size="large" />
+                <Text variant="error">CLOSED TEMPORARILY</Text>
               </>
             )}
           </Opening>
