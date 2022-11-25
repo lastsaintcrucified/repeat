@@ -26,7 +26,8 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     address,
   } = restaurant;
 
-  const ratingArray = Array.from(new Array(Math.floor(rating)));
+  const ratingArray = Array.from(Array(Math.floor(rating)).keys());
+  console.log("ratingArray->", ratingArray);
   return (
     <RestaurantCard elevation={2}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />

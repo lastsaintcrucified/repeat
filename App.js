@@ -14,6 +14,7 @@ import { Text } from "react-native";
 import { SafeArea } from "./src/utils/safe-area.component";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { RestaurantContextProvider } from "./src/services/restaurnts/restaurants.context";
+import { LocationContextProvider } from "./src/services/location/location.context";
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
@@ -58,15 +59,17 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantContextProvider>
-          <NavigationContainer>
-            <Tab.Navigator screenOptions={ScreenOptions}>
-              <Tab.Screen name="Restaurants" component={RestaurantScreen} />
-              <Tab.Screen name="Map" component={MapScreen} />
-              <Tab.Screen name="Settings" component={SettingsScreen} />
-            </Tab.Navigator>
-          </NavigationContainer>
-        </RestaurantContextProvider>
+        <LocationContextProvider>
+          <RestaurantContextProvider>
+            <NavigationContainer>
+              <Tab.Navigator screenOptions={ScreenOptions}>
+                <Tab.Screen name="Restaurants" component={RestaurantScreen} />
+                <Tab.Screen name="Map" component={MapScreen} />
+                <Tab.Screen name="Settings" component={SettingsScreen} />
+              </Tab.Navigator>
+            </NavigationContainer>
+          </RestaurantContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar />
     </>

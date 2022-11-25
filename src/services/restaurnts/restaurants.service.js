@@ -1,6 +1,6 @@
 import { mocks, mockImages } from "./mock";
 import camelize from "camelize";
-export const restaurantRequest = (location = "41.878113,-87.629799") => {
+export const restaurantRequest = (location) => {
   return new Promise((resolve, reject) => {
     const mock = mocks[location];
     if (!mock) {
@@ -14,6 +14,7 @@ export const restaurantTransform = ({ results = [] }) => {
     res.photos = res.photos.map((p) => {
       return mockImages[Math.ceil(Math.random() * (mockImages.length - 1))];
     });
+
     return {
       ...res,
       isOpenNow: res.opening_hours && res.opening_hours.open_now,
