@@ -7,7 +7,12 @@ import { Searchbar } from "react-native-paper";
 
 const SearchContainer = styled.View`
   background-color: ${(props) => props.theme.colors.bg.primary};
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[0]};
+  position: absolute;
+  z-index: 999;
+  top: 40px;
+  width: 95%;
+  align-self: center;
   border-radius: 2px;
 `;
 
@@ -32,7 +37,7 @@ export const Search = () => {
           }
           setSearchKeyword(text);
         }}
-        icon="heart-outline"
+        icon="map"
         iconColor="tomato"
       />
     </SearchContainer>
