@@ -11,10 +11,9 @@ const SearchContainer = styled.View`
   border-radius: 2px;
 `;
 
-export const Search = () => {
+export const Search = ({ isFavouritesToggled, onFavouritesToggled }) => {
   const { keyword, search } = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
-
   useEffect(() => {
     setSearchKeyword(keyword);
   }, [keyword]);
@@ -32,8 +31,9 @@ export const Search = () => {
           }
           setSearchKeyword(text);
         }}
-        icon="heart-outline"
-        iconColor="tomato"
+        icon={isFavouritesToggled ? "heart" : "heart-outline"}
+        iconColor="red"
+        onIconPress={onFavouritesToggled}
       />
     </SearchContainer>
   );

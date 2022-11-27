@@ -1,4 +1,5 @@
-import React from "react";
+import React, { memo } from "react";
+import { View } from "react-native";
 import { Text } from "../../../components/typography/text.component";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
@@ -14,8 +15,9 @@ import {
   RestaurantCardCover,
   SvgRow,
 } from "./restaurant-info-card.styles";
+import { Favourites } from "../../../components/favourites/favourites.component";
 
-export const RestaurantInfoCard = ({ restaurant = {} }) => {
+const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name,
     rating,
@@ -30,7 +32,10 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   // console.log("ratingArray->", ratingArray);
   return (
     <RestaurantCard elevation={2}>
-      <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+      <View>
+        <Favourites restaurant={restaurant} />
+        <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
+      </View>
       <Info>
         <Text variant="label">{name}</Text>
         <SvgRow>
@@ -62,3 +67,4 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     </RestaurantCard>
   );
 };
+export default memo(RestaurantInfoCard);
