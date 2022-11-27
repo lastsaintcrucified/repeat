@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { List } from "react-native-paper";
 import { SafeArea } from "../../../utils/safe-area.component";
-import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
+import RestaurantInfoCard from "../components/restaurant-info-card.component";
 import styled from "styled-components/native";
 
 const ListItem = styled(List.Item).attrs({
