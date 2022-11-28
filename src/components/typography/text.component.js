@@ -20,6 +20,7 @@ const hint = (theme) => `
 const error = (theme) => `
     color: ${theme.colors.text.error};
     font-size: ${theme.fontSizes.caption};
+    font-weight: ${theme.fontWeights.bold};
 `;
 
 const caption = (theme) => `
@@ -44,6 +45,11 @@ const variants = {
 export const Text = styled.Text`
   ${({ theme }) => defaultTextStyles(theme)}
   ${({ variant, theme }) => variants[variant](theme)}
+  ${({ color }) =>
+    color &&
+    `
+    color:color;
+  `}
 `;
 
 Text.defaultProps = {

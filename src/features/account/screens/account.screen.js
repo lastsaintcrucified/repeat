@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Button } from "react-native-paper";
 import { Spacer } from "../../../components/spacer/spacer.component";
+import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 
 import {
   AccountBackground,
@@ -9,6 +10,11 @@ import {
 } from "../components/account.styles";
 
 export const AccountScreen = ({ navigation }) => {
+  const { resetSomeState } = useContext(AuthenticationContext);
+  const handleLogin = () => {
+    resetSomeState();
+    navigation.navigate("Login");
+  };
   return (
     <AccountBackground>
       <AccountCover />
@@ -16,7 +22,7 @@ export const AccountScreen = ({ navigation }) => {
         <Button
           icon="lock-open-outline"
           mode="contained"
-          onPress={() => navigation.navigate("Login")}
+          onPress={handleLogin}
           uppercase
           buttonColor="#FF5F1F"
         >
