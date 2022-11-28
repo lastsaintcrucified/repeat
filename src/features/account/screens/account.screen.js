@@ -12,21 +12,23 @@ export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
-      <AccountInfoContainer>
+      <AccountInfoContainer screen="account">
         <Button
           icon="lock-open-outline"
-          mode="elevated"
+          mode="contained"
           onPress={() => navigation.navigate("Login")}
           uppercase
+          buttonColor="#FF5F1F"
         >
           Log in
         </Button>
         <Spacer size="medium" />
         <Button
           icon="account-check-outline"
-          mode="elevated"
+          mode="contained"
           onPress={() => navigation.navigate("Register")}
           uppercase
+          buttonColor="#F4BB44"
         >
           Register
         </Button>
