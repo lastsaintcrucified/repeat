@@ -3,6 +3,7 @@ export const colors = {
     primary: "#2182BD",
     secondary: "#5282BD",
     muted: "#C6DAF7",
+    main: "tomato",
   },
   ui: {
     primary: "#262626",
