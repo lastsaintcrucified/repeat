@@ -38,6 +38,11 @@ const title = (theme) => `
     font-size: ${theme.fontSizes.h3};
     font-weight: ${theme.fontWeights.medium};
 `;
+const alert = (theme) => `
+font-family: ${theme.fonts.body};
+font-size: ${theme.fontSizes.h5};
+font-weight: ${theme.fontWeights.medium};
+`;
 
 const variants = {
   body,
@@ -46,6 +51,7 @@ const variants = {
   error,
   hint,
   title,
+  alert,
 };
 
 export const Text = styled.Text`

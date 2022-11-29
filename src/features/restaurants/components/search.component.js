@@ -32,7 +32,7 @@ export const Search = ({ isFavouritesToggled, onFavouritesToggled }) => {
           setSearchKeyword(text);
         }}
         icon={isFavouritesToggled ? "heart" : "heart-outline"}
-        iconColor="red"
+        iconColor="#F08000"
         onIconPress={onFavouritesToggled}
       />
     </SearchContainer>
