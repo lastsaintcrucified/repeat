@@ -14,7 +14,7 @@ export const AccountCover = styled.View`
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.4);
 `;
 export const AccountInfoContainer = styled.View`
   ${({ screen }) =>

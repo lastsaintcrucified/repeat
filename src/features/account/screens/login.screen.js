@@ -10,8 +10,6 @@ import {
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
-import styled from "styled-components/native";
-import { ActivityIndicator, MD2Colors } from "react-native-paper";
 
 export const LoginScreen = () => {
   const { onLogin, error } = useContext(AuthenticationContext);
@@ -34,26 +32,26 @@ export const LoginScreen = () => {
         <TextInput
           label="Email"
           mode="flat"
-          underlineColor="#FF5F1F"
-          activeUnderlineColor="#FF5F1F"
+          underlineColor="#F08000"
+          activeUnderlineColor="#F08000"
           textContentType="email"
           value={email}
           onChangeText={(t) => setEmail(t)}
-          right={<TextInput.Icon icon="email-outline" iconColor="#FF5F1F" />}
+          right={<TextInput.Icon icon="email-outline" iconColor="#F08000" />}
         />
         <Spacer variant="medium" />
         <TextInput
           label="Password"
           mode="flat"
-          underlineColor="#FF5F1F"
-          activeUnderlineColor="#FF5F1F"
+          underlineColor="#F08000"
+          activeUnderlineColor="#F08000"
           value={password}
           onChangeText={(text) => setPassword(text)}
           secureTextEntry={hidden}
           right={
             <TextInput.Icon
               icon={hidden ? "eye-outline" : "eye-off-outline"}
-              iconColor="#FF5F1F"
+              iconColor="#F08000"
               onPress={() => setHidden(!hidden)}
             />
           }
@@ -70,7 +68,7 @@ export const LoginScreen = () => {
           mode="contained"
           onPress={handleButtonPress}
           uppercase
-          buttonColor="#FF5F1F"
+          buttonColor="#F08000"
           loading={isLoading}
         >
           Log in

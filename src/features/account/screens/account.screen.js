@@ -1,6 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Button } from "react-native-paper";
 import { Spacer } from "../../../components/spacer/spacer.component";
+import { Text } from "../../../components/typography/text.component";
+
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 
 import {
@@ -18,13 +20,17 @@ export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
+      <Text variant="title" color="white">
+        Repeat
+      </Text>
+      <Spacer />
       <AccountInfoContainer screen="account">
         <Button
           icon="lock-open-outline"
           mode="contained"
           onPress={handleLogin}
           uppercase
-          buttonColor="#FF5F1F"
+          buttonColor="#F08000"
         >
           Log in
         </Button>

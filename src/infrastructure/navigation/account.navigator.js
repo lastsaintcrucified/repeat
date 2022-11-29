@@ -1,9 +1,8 @@
 import React from "react";
-import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AccountScreen } from "../../features/account/screens/account.screen";
 import { LoginScreen } from "../../features/account/screens/login.screen";
-import { RegisterScreen } from "../../features/account/screens/register.screen";
+import { RegistrationScreen } from "../../features/account/screens/register.screen";
 
 const AccountStack = createNativeStackNavigator();
 
@@ -22,7 +21,7 @@ export const AccountNavigator = () => {
       />
       <AccountStack.Screen
         name="Register"
-        component={RegisterScreen}
+        component={RegistrationScreen}
         options={{ headerShown: false }}
       />
     </AccountStack.Navigator>
