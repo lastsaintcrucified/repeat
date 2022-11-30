@@ -6,7 +6,9 @@ export const locationRequest = (searchTerm) => {
     const locationMock = locations[searchTerm];
 
     if (!locationMock) {
-      reject("No location Found!!");
+      reject(
+        "No location Found! Only Antwerp, Toronto and San francisco is available for now"
+      );
     }
     resolve(locationMock);
   });

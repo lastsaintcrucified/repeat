@@ -21,7 +21,7 @@ const PressableContainer = styled(Pressable)`
   position: absolute;
   z-index: 999;
 `;
-export const CameraScreen = () => {
+export const CameraScreen = ({ navigation }) => {
   const cameraRef = useRef();
   const [permission, requestPermission] = Camera.useCameraPermissions();
   const { user } = useContext(AuthenticationContext);
@@ -33,6 +33,7 @@ export const CameraScreen = () => {
     if (cameraRef) {
       const photo = await cameraRef.current.takePictureAsync();
       AsyncStorage.setItem(`${user.uid}-photo`, photo.uri);
+      navigation.navigate("Settings");
     }
   };
 

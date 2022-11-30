@@ -9,6 +9,8 @@ import { ActivityIndicator, MD2Colors } from "react-native-paper";
 import { Search } from "../components/search.component";
 import { FavouritesBar } from "../../../components/favourites/fovourites-bar.component";
 import { FavouriteContext } from "../../../services/favourites/favourites.context";
+import { Text } from "../../../components/typography/text.component";
+import { LocationContext } from "../../../services/location/location.context";
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
     padding: 16,
@@ -23,9 +25,9 @@ const Loading = styled(ActivityIndicator)`
   margin-left: -25px;
 `;
 export const RestaurantScreen = ({ navigation }) => {
-  const { restaurants, isLoading, error } = useContext(RestaurantContext);
+  const { restaurants, isLoading } = useContext(RestaurantContext);
   const { favourites } = useContext(FavouriteContext);
-
+  const { error } = useContext(LocationContext);
   const [isToggled, setIsToggled] = useState(false);
   return (
     <SafeArea>
@@ -38,6 +40,11 @@ export const RestaurantScreen = ({ navigation }) => {
         isFavouritesToggled={isToggled}
         onFavouritesToggled={() => setIsToggled(!isToggled)}
       />
+      {error && (
+        <Spacer position="left" size="medium">
+          <Text variant="error">{error}</Text>
+        </Spacer>
+      )}
       {isToggled && <FavouritesBar favourites={favourites} />}
       <RestaurantList
         data={restaurants}

@@ -7,6 +7,7 @@ import styled from "styled-components/native";
 import { List, Avatar } from "react-native-paper";
 import { Text } from "../../../components/typography/text.component";
 import { useFocusEffect } from "@react-navigation/native";
+import { Spacer } from "../../../components/spacer/spacer.component";
 
 const SettingsItem = styled(List.Item)`
   padding: ${(props) => props.theme.space[3]};
@@ -30,13 +31,18 @@ export const SettingsScreen = ({ navigation }) => {
   );
   return (
     <SafeArea>
-      <AvatarContainer>
+      <Spacer position="left" size="large">
+        <Spacer position="top" size="large" />
         <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
-          {!photo && (
-            <Avatar.Icon size={180} icon="camera" backgroundColor="#F08000" />
-          )}
-          {photo && <Avatar.Image size={180} source={{ uri: photo }} />}
+          <Avatar.Icon size={40} icon="camera" backgroundColor="black" />
         </TouchableOpacity>
+      </Spacer>
+      <AvatarContainer>
+        {!photo && (
+          <Avatar.Icon size={180} icon="camera" backgroundColor="#F08000" />
+        )}
+        {photo && <Avatar.Image size={180} source={{ uri: photo }} />}
+
         <Text variant="label">{user.email}</Text>
       </AvatarContainer>
       <List.Section>
