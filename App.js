@@ -10,6 +10,12 @@ import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
 import { Navigation } from "./src/infrastructure/navigation";
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
+// add this is main component of react native application
+import { LogBox } from "react-native";
+
+LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
+console.disableYellowBox = true;
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
